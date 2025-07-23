@@ -230,6 +230,17 @@ def fit_predict_model(city_data):
     print ("House: " + str(x))
     print ("Prediction: " + str(y))
 
+def plot_feature_importance(regressor, feature_names):
+    importance = regressor.feature_importances_
+    indices = np.argsort(importance)[::-1]
+    
+    pl.figure(figsize=(12,6))
+    pl.title("Feature Importance")
+    pl.bar(range(len(indices)), importance[indices], align='center')
+    pl.xticks(range(len(indices)), [feature_names[i] for i in indices], rotation=90)
+    pl.tight_layout()
+    pl.savefig("feature_importance.png")
+
 
 def main():
     """Analyze the Boston housing data. Evaluate and validate the
