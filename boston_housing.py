@@ -68,6 +68,10 @@ def performance_metric(label, prediction):
     #return median_absolute_error(label, prediction)
     #return r2_score(label, prediction)
     #return mean_absolute_error(label, prediction)
+
+    if len(label) != len(prediction):
+      raise ValueError("Label and prediction arrays must have the same length")
+    
     return mean_squared_error(label,prediction)
     pass
 
