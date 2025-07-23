@@ -94,8 +94,8 @@ def learning_curve(depth, X_train, y_train, X_test, y_test):
     train_err = np.zeros(len(sizes))
     test_err = np.zeros(len(sizes))
 
-    print "Decision Tree with Max Depth: "
-    print depth
+    print ("Decision Tree with Max Depth: ")
+    print(depth)
     
 
 
@@ -136,7 +136,7 @@ def learning_curve_graph(sizes, train_err, test_err, depth):
 def model_complexity(X_train, y_train, X_test, y_test):
     """Calculate the performance of the model as model complexity increases."""
 
-    print "Model Complexity: "
+    print("Model Complexity: ")
 
     # We will vary the depth of decision trees from 2 to 25
     max_depth = np.arange(1, 25)
@@ -207,14 +207,14 @@ def fit_predict_model(city_data):
     reg = regressors.best_estimator_
 
     # Fit the learner to the training data
-    print "Final Model: "
+    print ("Final Model: ")
     print reg.fit(X, y)
     
     # Use the model to predict the output of a particular sample
     x = [11.95, 0.00, 18.100, 0, 0.6590, 5.6090, 90.00, 1.385, 24, 680.0, 20.20, 332.09, 12.13]
     y = reg.predict(x)
-    print "House: " + str(x)
-    print "Prediction: " + str(y)
+    print ("House: " + str(x))
+    print ("Prediction: " + str(y))
 
 
 def main():
