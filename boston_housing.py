@@ -175,6 +175,15 @@ def model_complexity_graph(max_depth, train_err, test_err):
     #pl.show()
     pl.savefig("model_complexity.png")
 
+def analyze_residuals(y_true, y_pred):
+    residuals = y_true - y_pred
+    pl.figure(figsize=(10,6))
+    pl.scatter(y_pred, residuals)
+    pl.axhline(y=0, color='r', linestyle='-')
+    pl.title('Residual Analysis')
+    pl.xlabel('Predicted Values')
+    pl.ylabel('Residuals')
+    pl.savefig("residual_analysis.png")
 
 def fit_predict_model(city_data):
     """Find and tune the optimal model. Make a prediction on housing data."""
