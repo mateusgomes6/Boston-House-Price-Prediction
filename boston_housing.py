@@ -47,13 +47,15 @@ def explore_city_data(city_data):
     median_price = np.median(housing_prices)
     standard_deviation = np.std(housing_prices)
     
-    print "number of houses:",number_of_houses
-    print "number of features:",number_of_features
-    print "max price of house:",max_price
-    print "min price of house:",min_price
-    print "mean price of house:",mean_price
-    print "median price of house:",median_price
-    print "standard deviation for prices of house:",standard_deviation
+    return {
+        "number_of_houses": number_of_houses,
+        "number_of_features": number_of_features,
+        "max_price": max_price,
+        "min_price": min_price,
+        "mean_price": mean_price,
+        "median_price": median_price,
+        "standard_deviation": standard_deviation
+    }
 
 def performance_metric(label, prediction):
     """Calculate and return the appropriate error performance metric."""
@@ -224,7 +226,7 @@ def main():
     city_data = load_data()
 
     # Explore the data
-    explore_city_data(city_data)
+    print(explore_city_data(city_data))
 
     # Training/Test dataset split
     X_train, y_train, X_test, y_test = split_data(city_data)
