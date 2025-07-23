@@ -10,8 +10,7 @@ from sklearn.tree import DecisionTreeRegressor
 ### ADD EXTRA LIBRARIES HERE ###
 ################################
 from sklearn.metrics import mean_squared_error,median_absolute_error,r2_score,mean_absolute_error
-from sklearn import model_selection
-from sklearn.cross_validation import train_test_split
+from sklearn.model_selection import GridSearchCV, train_test_split
 
 def load_data():
     """Load the Boston dataset."""
@@ -202,7 +201,7 @@ def fit_predict_model(city_data):
     # 2. Use gridearch to fine tune the Decision Tree Regressor and find the best model
     # http://scikit-learn.org/stable/modules/generated/sklearn.grid_search.GridSearchCV.html#sklearn.grid_search.GridSearchCV
 
-    regressors = model_selection.GridSearchCV(regressor, parameters, scoring='mean_squared_error')
+    regressors = GridSearchCV(regressor, parameters, scoring='mean_squared_error')
 
     regressors.fit(X,y)
 
