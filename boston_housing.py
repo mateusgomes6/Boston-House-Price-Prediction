@@ -131,10 +131,9 @@ def learning_curve_graph(sizes, train_err, test_err, depth):
     pl.plot(sizes, test_err, lw=2, label = 'test error')
     pl.plot(sizes, train_err, lw=2, label = 'training error')
     pl.legend()
-    pl.xlabel('Training Size')
-    pl.ylabel('Error')
-    #pl.show()
-    pl.savefig("learning_curve"+"_"+str(depth)+".png")
+    pl.xlabel('Training Size', fontsize=12)
+    pl.ylabel('Mean Squared Error', fontsize=12)
+    pl.grid(True, linestyle='--', alpha=0.7)
 
 
 def model_complexity(X_train, y_train, X_test, y_test):
@@ -212,7 +211,7 @@ def fit_predict_model(city_data):
 
     # Fit the learner to the training data
     print ("Final Model: ")
-    print reg.fit(X, y)
+    print(reg.fit(X, y))
     
     # Use the model to predict the output of a particular sample
     x = [11.95, 0.00, 18.100, 0, 0.6590, 5.6090, 90.00, 1.385, 24, 680.0, 20.20, 332.09, 12.13]
