@@ -10,7 +10,7 @@ from sklearn.tree import DecisionTreeRegressor
 ### ADD EXTRA LIBRARIES HERE ###
 ################################
 from sklearn.metrics import mean_squared_error,median_absolute_error,r2_score,mean_absolute_error
-from sklearn import grid_search
+from sklearn import model_selection
 from sklearn.cross_validation import train_test_split
 
 def load_data():
@@ -46,7 +46,7 @@ def explore_city_data(city_data):
     mean_price = np.mean(housing_prices)
     median_price = np.median(housing_prices)
     standard_deviation = np.std(housing_prices)
-
+    
     print "number of houses:",number_of_houses
     print "number of features:",number_of_features
     print "max price of house:",max_price
@@ -197,7 +197,7 @@ def fit_predict_model(city_data):
     # 2. Use gridearch to fine tune the Decision Tree Regressor and find the best model
     # http://scikit-learn.org/stable/modules/generated/sklearn.grid_search.GridSearchCV.html#sklearn.grid_search.GridSearchCV
 
-    regressors = grid_search.GridSearchCV(regressor, parameters, scoring='mean_squared_error')
+    regressors = model_selection.GridSearchCV(regressor, parameters, scoring='mean_squared_error')
 
     regressors.fit(X,y)
 
